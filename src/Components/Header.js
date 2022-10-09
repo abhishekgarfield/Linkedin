@@ -4,9 +4,6 @@ import {
   WorkRounded,
   Group,
   MessageOutlined,
-  UsbRounded,
-  VerifiedUser,
-  People,
   Person,
   Apps,
 } from "@material-ui/icons";
@@ -16,7 +13,7 @@ const Header = () => {
       <div className="header-container2">
         <div className="left-header-container">
           <div className="left-header-container-img">
-            <img src="https://i.imgur.com/SAeZ1Rb.png" />
+            <img src="https://i.imgur.com/SAeZ1Rb.png" alt="linkedin"/>
           </div>
           <div className="left-header-container-searchcontainer">
             <SearchRounded style={headersearchicon} />

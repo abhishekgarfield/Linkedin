@@ -2,7 +2,6 @@ import Header from "../Components/Header";
 import Sidebar from "../Components/Sidebar";
 import Feed from "../Components/Feed";
 import Widget from "../Components/Widget";
-import { FeedbackSharp } from "@material-ui/icons";
 
 const Homepage = () => {
   return (
