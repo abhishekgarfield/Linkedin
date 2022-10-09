@@ -13,6 +13,7 @@ code {
     monospace;
 }
 
+
 /* ----------------- Header ----------------*/
 
 .header-container {
@@ -84,3 +85,15 @@ code {
   font-size: 13px;
   color: rgba(0, 0, 0, 0.6);
 }
+
+/* ----------------- App-body ---------------- */
+.app-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width: 1044px;
+  width: 1000%;
+}
+
+/* ----------------- Sidebar ---------------- */
+
