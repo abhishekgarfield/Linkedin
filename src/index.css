@@ -14,6 +14,9 @@ code {
 }
 
 .Homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: rgba(243, 242, 239, 0.908);
 }
 
@@ -21,6 +24,9 @@ code {
 
 .header-container {
   display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0px;
   padding-top: 0px;
   background-color: white;
   flex-direction: row;
@@ -31,7 +37,7 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 1044px;
+  max-width: 1090px;
   width: 100%;
 }
 
@@ -95,10 +101,10 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  max-width: 1044px;
+  max-width: 1090px;
   width: 100%;
   justify-content: center;
-  margin-top: 20px;
+  margin: 78px auto;
 }
 
 /* ----------------- Sidebar ---------------- */
@@ -106,7 +112,8 @@ code {
 .Sidebar-container {
   display: flex;
   flex-direction: column;
-  flex: 0 0 25%;
+  flex: 0 0 20%;
+  margin-bottom: 20px;
 
 }
 
@@ -216,6 +223,8 @@ code {
   background-color: white;
   border-radius: 6px;
   margin-top: 5px;
+  position: sticky;
+  top:78px;
   padding: 15px 10px;
 }
 
@@ -231,4 +240,156 @@ code {
   font-size: 13px;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.65);
+}
+
+
+/* ------------- Feed -------------*/
+
+.Feed-container{
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 55%;
+}
+.feed-post-container{
+  display: flex;
+  background-color: white;
+  border-radius: 6px;
+  margin: 0px 20px;
+  flex-direction: column;
+  padding: 5px 10px;
+}
+.feed-input-container{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+ 
+}
+.feed-input-container input{
+  display: flex;
+  flex-grow: 1;
+  height: 40px;
+  border-radius: 20px;outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.239);
+  padding-left: 20px;
+  margin-left: 7px;
+  background-color: rgba(211, 211, 211, 0.475);
+  font-weight: 900;
+}
+.feed-input-text-container{
+  display: flex;
+  flex-grow: 1;
+}
+.feed-input-image-container{
+  display: flex;
+}
+.feed-input-image-container img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.feed-option-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.options-container{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.576);
+  border-radius: 5px;
+}
+.options-container:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+
+/* ------------- feed read container -------------*/
+
+.feed-Read-container{
+  display: flex;
+  flex-direction: column;
+  margin:0px 20px;
+}
+
+.post-card{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+
+}
+.Post-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.user-info{
+  display: flex;
+  flex-direction: column;
+}
+.user-pic{
+  display: flex;
+  margin-bottom: 10px;
+}
+.user-pic img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.user-name{
+  font-size: 15px;
+  font-weight: 600;
+}
+.user-info{
+  padding-left: 5px;
+}
+.user-information{
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.496);
+}
+.user-time{
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.496);
+ 
+}
+.post-content{
+  display: flex;
+  margin:10px 0px 3px 0px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.377);
+  padding-bottom: 15px;
+}
+
+.options-container{
+  flex-grow: 1;
+  display: flex;
+  color: rgba(0, 0, 0, 0.44);
+  justify-content: center;
+}
+
+/* ------------- Widget-container -------------*/
+
+.Widget-container{
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 25%;
+}
+.post-actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

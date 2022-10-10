@@ -1,8 +1,9 @@
 const Widget = () => {
     return (
-        <div>
-            
-        </div>
+        <div className="Widget-container">
+       
+
+    </div>
     );
 }
   export default Widget;

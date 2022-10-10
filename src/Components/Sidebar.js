@@ -1,13 +1,7 @@
 import { TurnedIn } from "@material-ui/icons";
 
-const Sidebar = () => {
-  const user = {
-    name: "Abhishek",
-    profile_pic:
-      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-    university: "Chitkara university",
-    user_connections: [123, 234],
-  };
+const Sidebar = ({user}) => {
+  
   const reacents = [
     "# india",
     "# population",
