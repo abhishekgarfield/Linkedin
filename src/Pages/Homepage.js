@@ -16,8 +16,8 @@ const Homepage = () => {
       <Header user={user} />
       <div className="app-body">
         <Sidebar user={user} />
-        <Feed  user={user}/>
-        <Widget />
+        <Feed   user={user}/>
+        <Widget user={user}/>
       </div>
     </div>
   );

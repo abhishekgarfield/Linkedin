@@ -1,7 +1,6 @@
 import { TurnedIn } from "@material-ui/icons";
 
-const Sidebar = ({user}) => {
-  
+const Sidebar = ({ user }) => {
   const reacents = [
     "# india",
     "# population",
@@ -43,8 +42,12 @@ const Sidebar = ({user}) => {
       </div>
       <div className="sidebar-lower-container">
         <div className="sidebar-lower-header">Recent</div>
-        {reacents.map((data) => {
-          return <div className="sidebar-lower-info">{data}</div>;
+        {reacents.map((data, index) => {
+          return (
+            <div key={index} className="sidebar-lower-info">
+              {data}
+            </div>
+          );
         })}
       </div>
     </div>

@@ -6,8 +6,11 @@ import {
   MessageOutlined,
   Person,
   Apps,
+  ChevronLeft,
+  ArrowDownward,
+  ArrowDropDown,
 } from "@material-ui/icons";
-const Header = () => {
+const Header = ({user}) => {
   return (
     <div className="header-container">
       <div className="header-container2">
@@ -38,8 +41,8 @@ const Header = () => {
             <span>Messaging</span>
           </div>
           <div className="right-header-container-content">
-            <Person style={headericon} />
-            <span>Me</span>
+            <img src={user.profile_pic} style={headericon} />
+            <span style={{display:"flex",flexDirection:"row",alignItems:"center"}}>Me<ArrowDropDown/></span>
           </div>
           <div className="right-header-container-content">
             <Apps style={headericon} />

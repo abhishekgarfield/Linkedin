@@ -31,6 +31,7 @@ code {
   background-color: white;
   flex-direction: row;
   justify-content: center;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.253);
 }
 
 .header-container2 {
@@ -217,6 +218,10 @@ code {
   font-weight: 500;
 }
 
+
+
+/* ------------- sidebar lower -------------*/
+
 .sidebar-lower-container {
   display: flex;
   flex-direction: column;
@@ -227,8 +232,6 @@ code {
   top: 78px;
   padding: 15px 10px;
 }
-
-/* ------------- sidebar lower -------------*/
 
 .sidebar-lower-header {
   font-size: 13px;
@@ -336,7 +339,7 @@ form button {
 .feed-Read-container {
   display: flex;
   flex-direction: column;
-  margin: 0px 20px;
+  margin: 12px 20px;
 }
 
 .post-card {
@@ -409,6 +412,7 @@ form button {
   color: rgba(0, 0, 0, 0.44);
   justify-content: center;
 }
+
 .post-actions {
   display: flex;
   flex-direction: row;
@@ -423,4 +427,339 @@ form button {
   flex: 0 0 25%;
 }
 
+.first-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 15px 10px;
+  border-radius: 6px;
+}
 
+.second-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 6px;
+  padding: 15px 10px;
+  margin-top: 5px;
+  position: sticky;
+  top: 78px;
+  padding: 15px 10px;
+}
+
+.first-container-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.first-container-header span {
+  font-weight: 700;
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.news-card span {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.427);
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  padding: 0px;
+  margin: 0px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.second-container-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12.5px;
+  color: rgba(0, 0, 0, 0.46);
+  padding: 10px 0px;
+}
+
+.images-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.images-container img {
+  height: 70px;
+  margin-right: 10px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.follow {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  padding: 5px 9px;
+  width: fit-content;
+  margin: auto;
+  align-items: center;
+  color: rgb(0, 110, 255);
+  flex-basis: 10%;
+  border-radius: 10px;
+  border: 0.5px solid rgb(0, 110, 255);
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+  font-size: 15px;
+
+}
+
+.right-header-container-content img {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+}
+
+/*--------------- authmodal -------------- */
+.authmodal-main-cont {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.207);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+}
+
+.authmodal-inner-cont {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  width: 30%;
+  color: black;
+  background-color: white;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.49);
+}
+
+.authmodal-inner-cont input {
+  width: 70%;
+  padding: 17px;
+  font-size: 15px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.398);
+  color: black;
+  outline: none;
+  margin: 15px 0px 0px 0px;
+  border-radius: 2px;
+
+}
+
+.authmodal-inner-cont h1 {
+  color: black;
+  font-weight: 700;
+  margin-top: 30px;
+  width: 76%;
+  font-size: 37px;
+}
+
+.authmodal-inner-cont .vutton {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s all;
+}
+
+.authmodal-inner-cont .submit-container:hover {
+  cursor: pointer;
+  background-color: rgb(31, 78, 195);
+  ;
+}
+
+.authmodal-inner-cont p {
+  color: #737373;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 72%;
+}
+
+
+
+.authmodal-inner-cont p span {
+  color: black;
+  font-size: 17px;
+
+}
+
+.authmodal-inner-cont p span:hover {
+  text-decoration: dashed;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.433);
+}
+
+.authmodal-main-cont img {
+  width: 150px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 50px;
+}
+
+.submit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin-top: 40px;
+  text-align: center;
+  background-color: rgba(40, 103, 178, 255);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  padding: 17px;
+  width: 70%;
+  transition: 0.2s all;
+}
+
+.submit-container .loader {
+  border: 2px solid rgba(251, 246, 246, 0.25);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-top: 0rem;
+  z-index: 29;
+  animation-name: loadt;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  border-top: 2px solid white;
+}
+
+@keyframes loadt {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+.authmodal-main-cont i {
+  font-size: 20px;
+  background-color: #e50914;
+  border-radius: 50%;
+  padding: 10px 12px;
+  align-self: flex-end;
+
+  transform: translate(40%, -30%);
+  position: relative;
+  transition: 0.3s all;
+
+}
+
+.authmodal-main-cont i:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.error-cont {
+  color: red;
+  text-align: left;
+  width: 75%;
+  margin-top: 10px;
+}
+
+/* navbar sigin out */
+
+.profile-drop {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 45px;
+  right: 2px;
+  background-color: #14141479;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.profile-drop .profile-pic-email {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.logout {
+  background-color: #e50914;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  color: white;
+  align-items: center;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#logout {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+#logout img {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+#logout:hover {
+  transform: scale(1.1);
+}
+
+.profile-drop.disappear {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 45px;
+  right: 2px;
+  background-color: #14141479;
+  padding: 10px;
+  border-radius: 5px;
+}

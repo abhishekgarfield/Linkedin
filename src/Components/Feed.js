@@ -2,6 +2,7 @@ import {
   AirlineSeatReclineExtra,
   Comment,
   Event,
+  FormatIndentDecreaseSharp,
   LinkedIn,
   Phone,
   Photo,
@@ -12,6 +13,7 @@ import {
   ThumbUp,
   YouTube,
 } from "@material-ui/icons";
+import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
 
 const Feed = ({ user }) => {
   const post = [
@@ -21,7 +23,7 @@ const Feed = ({ user }) => {
       user_pic:
         "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
       user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
+      time: new Date().toISOString(),
       likes: "",
       user_info: "student",
       comments: "",
@@ -190,7 +192,31 @@ const Feed = ({ user }) => {
             <img src={user.profile_pic} />
           </div>
           <div className="feed-input-text-container">
-            <input type="text" placeholder="Start a post" />
+            <form onSubmit={(e)=>{
+                e.preventDefault();
+               
+                var formdata=document.querySelector(".postdata");
+                console.log(formdata.value);
+                const temp=
+                  {
+                    post_id: "",
+                    user_id: user.user_id,
+                    user_pic:
+                      user.profile_pic,
+                    user_name: user.name,
+                    time: new Date().toLocaleDateString(),
+                    likes: [],
+                    user_info: "student",
+                    comments: [],
+                    post_content: formdata.value,
+                  }
+                  console.log(temp);
+
+                
+            }}>
+            <input type="text" placeholder="Start a post" className="postdata" />
+            <button type="submit"></button>
+            </form>
           </div>
         </div>
         <div className="feed-option-container">
