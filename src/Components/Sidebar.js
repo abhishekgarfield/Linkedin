@@ -1,5 +1,4 @@
 import { TurnedIn } from "@material-ui/icons";
-import userEvent from "@testing-library/user-event";
 
 const Sidebar = () => {
   const user = {
@@ -29,7 +28,7 @@ const Sidebar = () => {
       <div className="sidebar-upper-container">
         <div className="sidebar-profile-info-container">
           <div className="sidebar-profilepic">
-            <img src={user.profile_pic} />
+            <img src={user.profile_pic} alt="profile-pic" />
           </div>
           <span id="sidebar-user-name">{user.name}</span>
           <span id="useruni">{`Student at ${user.university}`}</span>
