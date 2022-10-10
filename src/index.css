@@ -13,12 +13,15 @@ code {
     monospace;
 }
 
-
+.Homepage{
+  background-color:rgba(243, 242, 239, 0.908) ;
+}
 /* ----------------- Header ----------------*/
 
 .header-container {
   display: flex;
   padding-top: 0px;
+  background-color: white;
   flex-direction: row;
   justify-content: center;
 }
@@ -92,8 +95,126 @@ code {
   flex-direction: row;
   justify-content: space-evenly;
   max-width: 1044px;
-  width: 1000%;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* ----------------- Sidebar ---------------- */
 
+.Sidebar-container{
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 25%;
+  
+}
+.sidebar-upper-container{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 6px;
+}
+.sidebar-lower-container{
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-profile-info-container{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.146);
+  padding: 15px 0px;
+}
+.sidebar-profile-info-container
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar-connection-info-container{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.164);
+}
+.Sidebar-connections{
+  display: flex;
+  flex-direction: row;
+}
+.sidebar-profilepic{
+  padding: 15px 0px;
+
+}
+#sidebar-user-name{
+  padding: 3px 0px;
+  font-size: 16px;
+  font-weight: 700;
+}
+#useruni{
+  padding: 3px 0px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(188, 188, 188);
+}
+.sidebar-myitems-info-container{
+  display: flex;
+  flex-direction: row;
+  padding: 15px 10px;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.598);
+  font-size: 14px;
+  font-weight: 500;
+}
+.connection-suggestion{
+  font-size: 12px;
+  font-weight: 600;
+  padding-top: 3px;
+  color: black;
+
+}
+.connection-title{
+  display: flex;
+  flex-grow: 1;
+  color: rgba(0, 0, 0, 0.598);
+  font-size: 14px;
+  font-weight: 500;
+}
+.sidebar-profilepic
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-profilepic img{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+.Connection-count{
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sidebar-lower-container{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 5px;
+  padding: 15px 10px;
+}
+
+/* ------------- sidebar lower -------------*/
+
+.sidebar-lower-header{
+  font-size: 13px;
+  font-weight: 400;
+}
+.sidebar-lower-info
+{
+  padding: 10px 0px 0px 0px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.65);
+}
