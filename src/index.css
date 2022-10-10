@@ -327,10 +327,25 @@ form button {
   color: rgba(0, 0, 0, 0.576);
   border-radius: 5px;
 }
+.options-container.liked{
+  color:rgb(0, 132, 255)
+}
 
 .options-container:hover {
   background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+.post-likes-comments{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.377);
+}
+.post-likes{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
 
 
@@ -402,7 +417,7 @@ form button {
 .post-content {
   display: flex;
   margin: 10px 0px 3px 0px;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.377);
+  
   padding-bottom: 15px;
 }
 
@@ -418,6 +433,9 @@ form button {
   flex-direction: row;
   justify-content: space-between;
 }
+
+
+
 
 /* ------------- Widget-container -------------*/
 

@@ -116,8 +116,60 @@ const Feed = ({ user }) => {
                 </div>
               </div>
               <div className="post-content">{data.post_content}</div>
+              {(data.likes.length > 0 ||
+                data.comments.length > 0) && (
+                  <div className="post-likes-comments">
+                    <div className="post-likes">
+                      <ThumbUp style={{ fontSize: 15 }} />
+                      {`${data.likes.length > 0 ? data.likes.length : ""}`}
+                    </div>
+                    <div className="post-comments"></div>
+                  </div>
+                )}
               <div className="post-actions">
-                <div className="options-container">
+                <div
+                  className={
+                    data.likes.some(({ user_id }) => user_id == user.user_id)
+                      ? "options-container liked"
+                      : "options-container"
+                  }
+                  onClick={(e) => {
+                    e.currentTarget.classList.toggle("liked");
+                    if (e.currentTarget.classList.contains("liked")) {
+                      data.likes.length+=1;
+                      fetch("http://localhost:8000/addlike", {
+                        method: "Put",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          post_id: data.post_id,
+                          user_id: user.user_id,
+                        }),
+                      })
+                        .then((res) => {
+                          return res.json();
+                        })
+                        .then((data) => {
+                          e.currentTarget.style.color = "rgb(0, 132, 255)";
+                        });
+                    } else {
+                      data.likes.length-=1;
+                      fetch("http://localhost:8000/removelike", {
+                        method: "Delete",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          post_id: data.post_id,
+                          user_id: user.user_id,
+                        }),
+                      })
+                        .then((res) => {
+                          return res.json();
+                        })
+                        .then((data) => {
+                          e.currentTarget.style.color = "rgba(0, 0, 0, 0.44)";
+                        });
+                    }
+                  }}
+                >
                   <ThumbUp style={{ paddingRight: 7 }} />
                   Like
                 </div>

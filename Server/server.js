@@ -7,7 +7,8 @@ app.use(express.json());
 const jwt = require("jsonwebtoken");
 app.use(cors());
 var MongoClient = require("mongodb").MongoClient;
-var uri = "mongodb+srv://abhishek:1234@cluster0.hqkaekj.mongodb.net/?retryWrites=true&w=majority";
+var uri =
+  "mongodb+srv://abhishek:1234@cluster0.hqkaekj.mongodb.net/?retryWrites=true&w=majority";
 const port = process.env.Port || 8000;
 
 app.post("/signup", async (req, res) => {
@@ -34,8 +35,8 @@ app.post("/signup", async (req, res) => {
     if (resp) {
       return res.status(403).json({ error: "User already exists !" });
     } else {
-        console.log(filtereduser)
-        const result = await collection.insertOne(filtereduser);
+      console.log(filtereduser);
+      const result = await collection.insertOne(filtereduser);
       const token = jwt.sign(result, user.email, {
         expiresIn: 60 * 24,
       });
@@ -82,40 +83,76 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.post("/addpost" ,async(req,res)=>{
-    console.log("addpost");
-    const post  = req.body;
-    console.log(post);
-    const client = new MongoClient(uri);
-    const post_id=v4();
-    post.post_id=post_id;
-    try {
-      await client.connect();
-      const database = client.db("app-data");
-      const collection = await database.collection("posts");
-      const resp=await collection.insertOne(post);
-      res.send(resp);
-      console.log(resp);
-    }catch(err)
-    {
-        console.log(err);
-    }
-})
-app.get("/getposts" ,async(req,res)=>{
-    console.log("get post");
-    const client = new MongoClient(uri);
-    try {
-      await client.connect();
-      const database = client.db("app-data");
-      const collection = await database.collection("posts");
-      const resp=await collection.find().toArray();
-      res.send(resp);
-      console.log(resp);
-    }catch(err)
-    {
-        console.log(err);
-    }
-})
+app.post("/addpost", async (req, res) => {
+  console.log("addpost");
+  const post = req.body;
+  console.log(post);
+  const client = new MongoClient(uri);
+  const post_id = v4();
+  post.post_id = post_id;
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const collection = await database.collection("posts");
+    const resp = await collection.insertOne(post);
+    res.send(resp);
+    console.log(resp);
+  } catch (err) {
+    console.log(err);
+  }
+});
+app.get("/getposts", async (req, res) => {
+  console.log("get post");
+  const client = new MongoClient(uri);
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const collection = await database.collection("posts");
+    const resp = await collection.find().toArray();
+    res.send(resp);
+    console.log(resp);
+  } catch (err) {
+    console.log(err);
+  }
+});
+app.put("/addlike", async (req, res) => {
+  console.log("addlike");
+  const { post_id, user_id } = req.body;
+  console.log("post_id");
+  const client = new MongoClient(uri);
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const collection = await database.collection("posts");
+    const resp = await collection.updateOne(
+      { post_id: post_id },
+      { $push: { likes: { user_id } } }
+    );
+    res.send(resp);
+    console.log(resp);
+  } catch (err) {
+    console.log(err);
+  }
+});
+app.delete("/removelike", async (req, res) => {
+  console.log("removelike");
+  const { post_id, user_id } = req.body;
+  console.log("post_id");
+  const client = new MongoClient(uri);
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const collection = await database.collection("posts");
+    const resp = await collection.updateOne(
+      { post_id: post_id },
+      { $pull: { likes: { user_id } } }
+    );
+    res.send(resp);
+    console.log(resp);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 app.listen(port, () => {
   console.log(`server is running on ${port}`);
