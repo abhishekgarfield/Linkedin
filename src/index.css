@@ -224,7 +224,7 @@ code {
   border-radius: 6px;
   margin-top: 5px;
   position: sticky;
-  top:78px;
+  top: 78px;
   padding: 15px 10px;
 }
 
@@ -245,12 +245,24 @@ code {
 
 /* ------------- Feed -------------*/
 
-.Feed-container{
+.Feed-container {
   display: flex;
   flex-direction: column;
   flex: 0 0 55%;
 }
-.feed-post-container{
+
+form {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+}
+
+form button {
+  display: none;
+}
+
+.feed-post-container {
   display: flex;
   background-color: white;
   border-radius: 6px;
@@ -258,43 +270,51 @@ code {
   flex-direction: column;
   padding: 5px 10px;
 }
-.feed-input-container{
+
+.feed-input-container {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   align-items: center;
- 
+
 }
-.feed-input-container input{
+
+.feed-input-container input {
   display: flex;
   flex-grow: 1;
   height: 40px;
-  border-radius: 20px;outline: none;
+  border-radius: 20px;
+  outline: none;
   border: 1px solid rgba(0, 0, 0, 0.239);
   padding-left: 20px;
   margin-left: 7px;
   background-color: rgba(211, 211, 211, 0.475);
   font-weight: 900;
 }
-.feed-input-text-container{
+
+.feed-input-text-container {
   display: flex;
   flex-grow: 1;
 }
-.feed-input-image-container{
+
+.feed-input-image-container {
   display: flex;
 }
-.feed-input-image-container img{
+
+.feed-input-image-container img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
-.feed-option-container{
+
+.feed-option-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 5px;
 }
-.options-container{
+
+.options-container {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -304,7 +324,8 @@ code {
   color: rgba(0, 0, 0, 0.576);
   border-radius: 5px;
 }
-.options-container:hover{
+
+.options-container:hover {
   background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
@@ -312,13 +333,13 @@ code {
 
 /* ------------- feed read container -------------*/
 
-.feed-Read-container{
+.feed-Read-container {
   display: flex;
   flex-direction: column;
-  margin:0px 20px;
+  margin: 0px 20px;
 }
 
-.post-card{
+.post-card {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
@@ -327,69 +348,79 @@ code {
   border-radius: 6px;
 
 }
-.Post-header{
+
+.Post-header {
   display: flex;
   flex-direction: row;
   align-items: center;
 
 }
-.user-info{
+
+.user-info {
   display: flex;
   flex-direction: column;
 }
-.user-pic{
+
+.user-pic {
   display: flex;
   margin-bottom: 10px;
 }
-.user-pic img{
+
+.user-pic img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
 
-.user-name{
+.user-name {
   font-size: 15px;
   font-weight: 600;
 }
-.user-info{
+
+.user-info {
   padding-left: 5px;
 }
-.user-information{
+
+.user-information {
   font-size: 13px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.496);
 }
-.user-time{
+
+.user-time {
   display: flex;
   align-items: center;
   font-size: 13px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.496);
- 
+
 }
-.post-content{
+
+.post-content {
   display: flex;
-  margin:10px 0px 3px 0px;
+  margin: 10px 0px 3px 0px;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.377);
   padding-bottom: 15px;
 }
 
-.options-container{
+.options-container {
   flex-grow: 1;
   display: flex;
   color: rgba(0, 0, 0, 0.44);
   justify-content: center;
 }
-
-/* ------------- Widget-container -------------*/
-
-.Widget-container{
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 25%;
-}
-.post-actions{
+.post-actions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
+/* ------------- Widget-container -------------*/
+
+.Widget-container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 25%;
+}
+
+
