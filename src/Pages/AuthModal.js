@@ -28,9 +28,7 @@ const AuthModal = () => {
       setError(null);
       disptach(setIsloading(true));
 
-      const url = `${
-        isLogin ? "login" : "signup"
-      }`;
+      const url = `http://localhost:8000/${isLogin ? "login" : "signup"}`;
 
       fetch(url, {
         method: "Post",
@@ -47,7 +45,7 @@ const AuthModal = () => {
             setCookie("authToken", data.token);
             setCookie("user_id", data.user_id);
             disptach(setIsloading(false));
-            navigate("/netflix");
+            navigate("/linkedin");
             window.location.reload();
           });
         }
@@ -63,6 +61,7 @@ const AuthModal = () => {
         <h1>{isLogin ? "Sign in" : "Sign up"}</h1>
         {!isLogin && <input
           type="text"
+          required={true}
           placeholder="Name"
           value={user.name}
           name="name"
@@ -70,6 +69,7 @@ const AuthModal = () => {
         />}
         <input
           type="text"
+          required={true}
           placeholder="Email"
           value={user.email}
           name="email"

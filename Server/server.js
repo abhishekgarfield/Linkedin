@@ -6,10 +6,9 @@ const { v4 } = require("uuid");
 app.use(express.json());
 const jwt = require("jsonwebtoken");
 app.use(cors());
-require("dotenv").config();
 var MongoClient = require("mongodb").MongoClient;
-var uri = process.env.uri;
-const port = process.env.Port;
+var uri = "mongodb+srv://abhishek:1234@cluster0.hqkaekj.mongodb.net/?retryWrites=true&w=majority";
+const port = process.env.Port || 8000;
 
 app.post("/signup", async (req, res) => {
   console.log("signup");
@@ -29,12 +28,14 @@ app.post("/signup", async (req, res) => {
       password: hashedpassword,
       email: sentitizedEmail,
       profile_pic: user.url,
+      user_connections: [],
     };
     const resp = await collection.findOne({ email: sentitizedEmail });
     if (resp) {
       return res.status(403).json({ error: "User already exists !" });
     } else {
-      const result = await collection.insertOne(filtereduser);
+        console.log(filtereduser)
+        const result = await collection.insertOne(filtereduser);
       const token = jwt.sign(result, user.email, {
         expiresIn: 60 * 24,
       });
@@ -83,16 +84,31 @@ app.post("/login", async (req, res) => {
 
 app.post("/addpost" ,async(req,res)=>{
     console.log("addpost");
-    const { post } = req.body;
+    const post  = req.body;
     console.log(post);
     const client = new MongoClient(uri);
     const post_id=v4();
-    post.post_id=post_id
+    post.post_id=post_id;
     try {
       await client.connect();
       const database = client.db("app-data");
       const collection = await database.collection("posts");
-      const resp=collection.insertOne(post);
+      const resp=await collection.insertOne(post);
+      res.send(resp);
+      console.log(resp);
+    }catch(err)
+    {
+        console.log(err);
+    }
+})
+app.get("/getposts" ,async(req,res)=>{
+    console.log("get post");
+    const client = new MongoClient(uri);
+    try {
+      await client.connect();
+      const database = client.db("app-data");
+      const collection = await database.collection("posts");
+      const resp=await collection.find().toArray();
       res.send(resp);
       console.log(resp);
     }catch(err)

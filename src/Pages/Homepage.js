@@ -5,6 +5,7 @@ import Widget from "../Components/Widget";
 
 const Homepage = () => {
   const user = {
+    user_id:1,
     name: "Abhishek",
     profile_pic:
       "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",

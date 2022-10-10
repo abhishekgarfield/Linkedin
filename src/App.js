@@ -3,9 +3,11 @@ import Homepage from "./Pages/Homepage";
 import AuthModal from "./Pages/AuthModal";
 import { Provider } from "react-redux";
 import Store from "./store";
+import {useCookies} from "react-cookie";
 
 function App() {
-  const authToken = false;
+  const [cookies,setCookie,removeCookie]=useCookies(`[user]`)
+  const authToken = cookies.authToken;
   return (
     <Provider store={Store}>
       <BrowserRouter>

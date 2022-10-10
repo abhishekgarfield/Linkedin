@@ -1,10 +1,6 @@
 import {
-  AirlineSeatReclineExtra,
   Comment,
   Event,
-  FormatIndentDecreaseSharp,
-  LinkedIn,
-  Phone,
   Photo,
   PostAdd,
   Public,
@@ -13,177 +9,24 @@ import {
   ThumbUp,
   YouTube,
 } from "@material-ui/icons";
-import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
-import { json } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Feed = ({ user }) => {
-  const post = [
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toISOString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-    ,
-    {
-      post_id: "1",
-      user_id: "1",
-      user_pic:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-      user_name: "abhishek",
-      time: new Date().toLocaleDateString(),
-      likes: "",
-      user_info: "student",
-      comments: "",
-      post_content: "Hello abhishek this side",
-    },
-  ];
+  const [formdata, setformdata] = useState("");
+  const [posts, setPosts] = useState(null);
+  const getposts = () => {
+    fetch("http://localhost:8000/getposts", { method: "Get" })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setPosts(data.sort((a, b) => b.time.localeCompare(a.time)));
+      });
+  };
+  useEffect(() => {
+    getposts();
+  }, []);
   return (
     <div className="Feed-container">
       <div className="feed-post-container">
@@ -195,24 +38,26 @@ const Feed = ({ user }) => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-
-                var formdata = document.querySelector(".postdata");
-                console.log(formdata.value);
                 const post = {
                   user_id: user.user_id,
                   user_pic: user.profile_pic,
                   user_name: user.name,
-                  time: new Date().toLocaleDateString(),
+                  time: new Date().toISOString(),
                   likes: [],
                   user_info: "student",
                   comments: [],
-                  post_content: formdata.value,
+                  post_content: formdata,
                 };
+                setformdata("");
                 console.log(post);
-                fetch("http://localhost:3000/addpost", {
+                fetch("http://localhost:8000/addpost", {
                   method: "Post",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(post),
+                }).then((res) => {
+                  if (res) {
+                    getposts();
+                  }
                 });
               }}
             >
@@ -220,6 +65,10 @@ const Feed = ({ user }) => {
                 type="text"
                 placeholder="Start a post"
                 className="postdata"
+                value={formdata}
+                onChange={(e) => {
+                  setformdata(e.target.value);
+                }}
               />
               <button type="submit"></button>
             </form>
@@ -250,7 +99,7 @@ const Feed = ({ user }) => {
       </div>
 
       <div className="feed-Read-container">
-        {post.map((data, index) => {
+        {posts?.map((data, index) => {
           return (
             <div className="post-card" key={index}>
               <div className="Post-header">
