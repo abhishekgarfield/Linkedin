@@ -11,6 +11,7 @@ const AuthModal = () => {
   const disptach = useDispatch();
   const [user, setUser] = useState({
     email: "",
+    email: "",
     password: "",
     confirmpassword: "",
     url: "",
@@ -60,6 +61,13 @@ const AuthModal = () => {
       <img src="https://i.imgur.com/pG5EiLc.png" />
       <div className="authmodal-inner-cont">
         <h1>{isLogin ? "Sign in" : "Sign up"}</h1>
+        {!isLogin && <input
+          type="text"
+          placeholder="Name"
+          value={user.name}
+          name="name"
+          onChange={(e) => handleChange(e)}
+        />}
         <input
           type="text"
           placeholder="Email"
