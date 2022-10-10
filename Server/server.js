@@ -81,6 +81,26 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/addpost" ,async(req,res)=>{
+    console.log("addpost");
+    const { post } = req.body;
+    console.log(post);
+    const client = new MongoClient(uri);
+    const post_id=v4();
+    post.post_id=post_id
+    try {
+      await client.connect();
+      const database = client.db("app-data");
+      const collection = await database.collection("posts");
+      const resp=collection.insertOne(post);
+      res.send(resp);
+      console.log(resp);
+    }catch(err)
+    {
+        console.log(err);
+    }
+})
+
 app.listen(port, () => {
   console.log(`server is running on ${port}`);
 });
