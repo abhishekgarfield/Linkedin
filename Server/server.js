@@ -117,6 +117,22 @@ app.get("/getposts", async (req, res) => {
     console.log(err);
   }
 });
+app.get("/getuser", async (req, res) => {
+    console.log("get user");
+    const {user_id}=req.query;
+    console.log(user_id);
+    const client = new MongoClient(uri);
+    try {
+      await client.connect();
+      const database = client.db("app-data");
+      const collection = await database.collection("users");
+    const resp = await collection.findOne({user_id:user_id});
+     res.send(resp);
+     console.log(resp);
+    } catch (err) {
+      console.log(err);
+    }
+  });
 app.put("/addlike", async (req, res) => {
   console.log("addlike");
   const { post_id, user_id } = req.body;

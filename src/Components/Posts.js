@@ -67,7 +67,7 @@ const Post = ({ post, user, index ,getposts}) => {
               {`${templikes > 0 ? templikes : "0"}`}
             </div>
           )}
-          <div className="post-comments">{`${post.comments?.length} comments`}</div>
+          <div className="post-comments">{`${post.comments?.length>0 ? post.comments?.length :0 } comments`}</div>
         </div>
       )}
       <div className="post-actions">

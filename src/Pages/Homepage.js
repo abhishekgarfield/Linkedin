@@ -2,24 +2,50 @@ import Header from "../Components/Header";
 import Sidebar from "../Components/Sidebar";
 import Feed from "../Components/Feed";
 import Widget from "../Components/Widget";
+import { useCookies } from "react-cookie";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsloading } from "../Slice/activity";
+import { json, useNavigate } from "react-router-dom";
 
 const Homepage = () => {
-  const user = {
-    user_id:1,
-    name: "Abhishek",
-    profile_pic:
-      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Vidhyut_%26_Arhaan_at_the_launch_of_%27Big_RTL_Thrill%27_channel.jpg",
-    university: "Chitkara university",
-    user_connections: [123, 234],
+  const navigate = useNavigate();
+  const disptach = useDispatch();
+  const isloading = useSelector((state) => {
+    return state.activity.isLoading;
+  });
+  const [cookies, setCookie, removeCookie] = useCookies(`[user]`);
+  const user_id = cookies.user_id;
+  console.log(user_id);
+  const [user, setUser] = useState(null);
+  const getuser = () => {
+    disptach(setIsloading(true));
+    fetch(`http://localhost:8000/getuser/?user_id=${user_id}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        disptach(setIsloading(false));
+        setUser(data);
+      });
   };
+  useEffect(() => {
+    getuser();
+  }, []);
   return (
     <div className="Homepage">
-      <Header user={user} />
-      <div className="app-body">
-        <Sidebar user={user} />
-        <Feed   user={user}/>
-        <Widget user={user}/>
-      </div>
+      {user && !isloading && (
+        <>
+          <Header user={user} />
+          <div className="app-body">
+            <Sidebar user={user} />
+            <Feed user={user} />
+            <Widget user={user} />
+          </div>
+        </>
+      )}
+      {!user && isloading && <div className="loader-container">
+        <div className="loader"></div></div>}
     </div>
   );
 };

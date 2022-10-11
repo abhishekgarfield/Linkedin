@@ -369,7 +369,7 @@ form button {
 .feed-Read-container {
   display: flex;
   flex-direction: column;
-  margin: 12px 20px;
+  margin: 3px 20px;
 }
 
 .post-card {
@@ -878,4 +878,26 @@ padding-bottom: 0px;
 }
 .comment-container .post-content.nt{
   border-bottom: none;
+}
+
+.Homepage .loader-container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.Homepage .loader{
+  border: 7px solid rgba(251, 246, 246, 0.25);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-top: 0rem;
+  z-index: 29;
+  animation-name: loadt;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  border-top: 7px solid red;
 }
