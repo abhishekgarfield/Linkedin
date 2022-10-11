@@ -65,8 +65,8 @@ const Widget = ({ user }) => {
         </div>
         <div className="second-container-content">
           <div className="images-container">
-            <img src={user.profile_pic} />
-            <img
+            <img src={user.profile_pic}  alt="profilepic"/>
+            <img alt="company"
               src={
                 "https://media-exp1.licdn.com/dms/image/C560BAQFjHNUub2MPHA/company-logo_100_100/0/1519855923074?e=1673481600&v=beta&t=ahZqnpWehZCza47MTeTIG_Qj3xbMZUcBn-LPr-iktrM"
               }

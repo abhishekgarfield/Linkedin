@@ -2,18 +2,13 @@ import { useState } from "react";
 import {
   ArrowDropDown,
   Comment,
-  Event,
-  Photo,
-  PostAdd,
   Public,
   Send,
   Share,
   ThumbUp,
-  YouTube,
 } from "@material-ui/icons";
 
-const Post = ({ post, user, index ,getposts}) => {
- 
+const Post = ({ post, user, index, getposts }) => {
   const [formdata, setformdata] = useState("");
   const [iscommentselected, setiscommentselected] = useState(false);
   const [templikes, setTemplikes] = useState(post ? post.likes.length : 0);
@@ -21,7 +16,7 @@ const Post = ({ post, user, index ,getposts}) => {
     <div className="post-card" key={index}>
       <div className="Post-header">
         <div className="user-pic">
-          <img src={post.user_pic} />
+          <img src={post.user_pic} alt="profile" />
         </div>
         <div className="user-info">
           <div className="user-name">{post.user_name}</div>
@@ -33,15 +28,19 @@ const Post = ({ post, user, index ,getposts}) => {
                 ((new Date(post.time).getDate() - 1) * 24 +
                   new Date(post.time).getHours()) >
               24
-                ?`${ (new Date().getDate() - 1) * 24 +
-                  new Date().getHours() -
-                  ((new Date(post.time).getDate() - 1) * 24 +
-                    new Date(post.time).getHours()) /
-                    24} d`
-                : `${ (new Date().getDate() - 1) * 24 +
-                  new Date().getHours() -
-                  ((new Date(post.time).getDate() - 1) * 24 +
-                    new Date(post.time).getHours())}h`
+                ? `${
+                    (new Date().getDate() - 1) * 24 +
+                    new Date().getHours() -
+                    ((new Date(post.time).getDate() - 1) * 24 +
+                      new Date(post.time).getHours()) /
+                      24
+                  } d`
+                : `${
+                    (new Date().getDate() - 1) * 24 +
+                    new Date().getHours() -
+                    ((new Date(post.time).getDate() - 1) * 24 +
+                      new Date(post.time).getHours())
+                  }h`
             }`}{" "}
             <Public style={{ fontSize: 17, paddingLeft: 3 }} />
           </div>
@@ -67,7 +66,9 @@ const Post = ({ post, user, index ,getposts}) => {
               {`${templikes > 0 ? templikes : "0"}`}
             </div>
           )}
-          <div className="post-comments">{`${post.comments?.length>0 ? post.comments?.length :0 } comments`}</div>
+          <div className="post-comments">{`${
+            post.comments?.length > 0 ? post.comments?.length : 0
+          } comments`}</div>
         </div>
       )}
       <div className="post-actions">
@@ -139,35 +140,37 @@ const Post = ({ post, user, index ,getposts}) => {
         <div className="comments">
           <div className="feed-input-container">
             <div className="feed-input-image-container">
-              <img src={user.profile_pic} />
+              <img src={user.profile_pic}   alt="profile" />
             </div>
             <div className="feed-input-text-container">
               <form
                 onSubmit={(e) => {
-                  e.preventDefault();
-                  const comment = {
-                    user_id: user.user_id,
-                    user_pic: user.profile_pic,
-                    user_name: user.name,
-                    time: new Date().toISOString(),
-                    user_info: "student",
-                    comment_content: formdata,
-                  };
-                  setformdata("");
-                  fetch(
-                    `http://localhost:8000/addcomment/?post_id=${post.post_id}`,
-                    {
-                      method: "Post",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(comment),
-                    }
-                  )
-                    .then((res) => {
-                      return res.json();
-                    })
-                    .then((data) => {
+                  if (formdata.length > 2) {
+                    e.preventDefault();
+                    const comment = {
+                      user_id: user.user_id,
+                      user_pic: user.profile_pic,
+                      user_name: user.name,
+                      time: new Date().toISOString(),
+                      user_info: "student",
+                      comment_content: formdata,
+                    };
+                    setformdata("");
+                    fetch(
+                      `http://localhost:8000/addcomment/?post_id=${post.post_id}`,
+                      {
+                        method: "Post",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(comment),
+                      }
+                    )
+                      .then((res) => {
+                        return res.json();
+                      })
+                      .then((data) => {
                         getposts();
-                    });
+                      });
+                  }
                 }}
               >
                 <input
@@ -197,30 +200,34 @@ const Post = ({ post, user, index ,getposts}) => {
               <div className="comment-container">
                 <div className="Post-header">
                   <div className="user-pic">
-                    <img src={post.user_pic} />
+                    <img src={post.user_pic}   alt="profile" />
                   </div>
                   <div className="user-info">
                     <div className="user-name">{post.user_name}</div>
                     <div className="user-information">{post.user_info}</div>
                     <div className="user-time">
-            {`${
-              (new Date().getDate() - 1) * 24 +
-                new Date().getHours() -
-                ((new Date(post.time).getDate() - 1) * 24 +
-                  new Date(post.time).getHours()) >
-              24
-                ?`${ (new Date().getDate() - 1) * 24 +
-                  new Date().getHours() -
-                  ((new Date(post.time).getDate() - 1) * 24 +
-                    new Date(post.time).getHours()) /
-                    24} d`
-                : `${ (new Date().getDate() - 1) * 24 +
-                  new Date().getHours() -
-                  ((new Date(post.time).getDate() - 1) * 24 +
-                    new Date(post.time).getHours())}h`
-            }`}{" "}
-            <Public style={{ fontSize: 17, paddingLeft: 3 }} />
-          </div>
+                      {`${
+                        (new Date().getDate() - 1) * 24 +
+                          new Date().getHours() -
+                          ((new Date(post.time).getDate() - 1) * 24 +
+                            new Date(post.time).getHours()) >
+                        24
+                          ? `${
+                              (new Date().getDate() - 1) * 24 +
+                              new Date().getHours() -
+                              ((new Date(post.time).getDate() - 1) * 24 +
+                                new Date(post.time).getHours()) /
+                                24
+                            } d`
+                          : `${
+                              (new Date().getDate() - 1) * 24 +
+                              new Date().getHours() -
+                              ((new Date(post.time).getDate() - 1) * 24 +
+                                new Date(post.time).getHours())
+                            }h`
+                      }`}{" "}
+                      <Public style={{ fontSize: 17, paddingLeft: 3 }} />
+                    </div>
                     <div
                       className={
                         templikes > 0 || post.comments?.length > 0

@@ -25,6 +25,7 @@ app.post("/signup", async (req, res) => {
     const hashedpassword = await bcrypt.hash(user.password, 10);
     const filtereduser = {
       name: user.name,
+      university:"Chitkara University",
       user_id: user_id,
       password: hashedpassword,
       email: sentitizedEmail,

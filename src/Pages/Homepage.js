@@ -6,10 +6,7 @@ import { useCookies } from "react-cookie";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsloading } from "../Slice/activity";
-import { json, useNavigate } from "react-router-dom";
-
 const Homepage = () => {
-  const navigate = useNavigate();
   const disptach = useDispatch();
   const isloading = useSelector((state) => {
     return state.activity.isLoading;

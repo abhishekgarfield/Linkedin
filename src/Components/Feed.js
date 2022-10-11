@@ -1,12 +1,7 @@
 import {
-  Comment,
   Event,
   Photo,
   PostAdd,
-  Public,
-  Send,
-  Share,
-  ThumbUp,
   YouTube,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
@@ -33,35 +28,39 @@ const Feed = ({ user }) => {
       <div className="feed-post-container">
         <div className="feed-input-container">
           <div className="feed-input-image-container">
-            <img src={user.profile_pic} />
+            <img src={user.profile_pic}   alt="profile" />
           </div>
           <div className="feed-input-text-container">
             <form
               onSubmit={(e) => {
-                e.preventDefault();
-                const post = {
-                  user_id: user.user_id,
-                  user_pic: user.profile_pic,
-                  user_name: user.name,
-                  time: new Date().toISOString(),
-                  likes: [],
-                  user_info: "student",
-                  post_content: formdata,
-                };
-                setformdata("");
-                console.log(post);
-                fetch("http://localhost:8000/addpost", {
-                  method: "Post",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(post),
-                })
-                  .then((res) => {
-                    return res.json();
+                if (formdata.length) {
+                  e.preventDefault();
+                  const post = {
+                    user_id: user.user_id,
+                    user_pic: user.profile_pic,
+                    user_name: user.name,
+                    time: new Date().toISOString(),
+                    likes: [],
+                    user_info: "student",
+                    post_content: formdata,
+                  };
+                  setformdata("");
+                  console.log(post);
+                  fetch("http://localhost:8000/addpost", {
+                    method: "Post",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(post),
                   })
-                  .then((data) => {
-                    console.log(data);
-                    setPosts(data.sort((a, b) => b.time.localeCompare(a.time)));
-                  });
+                    .then((res) => {
+                      return res.json();
+                    })
+                    .then((data) => {
+                      console.log(data);
+                      setPosts(
+                        data.sort((a, b) => b.time.localeCompare(a.time))
+                      );
+                    });
+                }
               }}
             >
               <input

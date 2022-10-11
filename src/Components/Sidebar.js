@@ -23,8 +23,8 @@ const Sidebar = ({ user }) => {
           <div className="sidebar-profilepic">
             <img src={user.profile_pic} alt="profile-pic" />
           </div>
-          <span id="sidebar-user-name">{user.name}</span>
-          <span id="useruni">{`Student at ${user.university}`}</span>
+          <span className="sidebar-user-name">{user.name}</span>
+          <span className="useruni">{`Student at ${user.university}`}</span>
         </div>
         <div className="sidebar-connection-info-container">
           <div className="Sidebar-connections">

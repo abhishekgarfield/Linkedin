@@ -4,19 +4,20 @@ import {
   WorkRounded,
   Group,
   MessageOutlined,
-  Person,
   Apps,
-  ChevronLeft,
-  ArrowDownward,
   ArrowDropDown,
 } from "@material-ui/icons";
-const Header = ({user}) => {
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+const Header = ({ user }) => {
+  const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies(`[user]`);
   return (
     <div className="header-container">
       <div className="header-container2">
         <div className="left-header-container">
           <div className="left-header-container-img">
-            <img src="https://i.imgur.com/SAeZ1Rb.png" alt="linkedin"/>
+            <img src="https://i.imgur.com/SAeZ1Rb.png" alt="linkedin" />
           </div>
           <div className="left-header-container-searchcontainer">
             <SearchRounded style={headersearchicon} />
@@ -40,9 +41,46 @@ const Header = ({user}) => {
             <MessageOutlined style={headericon} />
             <span>Messaging</span>
           </div>
-          <div className="right-header-container-content">
-            <img src={user.profile_pic} style={headericon} />
-            <span style={{display:"flex",flexDirection:"row",alignItems:"center"}}>Me<ArrowDropDown/></span>
+          <div
+            className="right-header-container-content"
+            onClick={() => {
+              var el = document.querySelector(".logout");
+              el.classList.toggle("show");
+            }}
+          >
+            <img src={user.profile_pic} style={headericon}   alt="profile" />
+            <span
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Me
+              <ArrowDropDown />
+            </span>
+            <div className="logout">
+              <div className="sidebar-profile-info-container">
+                <div className="sidebar-profilepic">
+                  <img src={user.profile_pic} alt="profile-pic" />
+                </div>
+                <div className="logout-style">
+                  <span className="sidebar-user-name">{user.name}</span>
+                  <span className="useruni">{`Student at ${user.university}`}</span>
+                </div>
+              </div>
+              <div
+                className="logout-button"
+                onClick={() => {
+                  removeCookie("authToken", cookies.authToken);
+                  removeCookie("user_id", cookies.user_id);
+
+                  navigate("/");
+                }}
+              >
+                Logout
+              </div>
+            </div>
           </div>
           <div className="right-header-container-content">
             <Apps style={headericon} />
