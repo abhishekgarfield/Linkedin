@@ -203,9 +203,24 @@ const Post = ({ post, user, index ,getposts}) => {
                     <div className="user-name">{post.user_name}</div>
                     <div className="user-information">{post.user_info}</div>
                     <div className="user-time">
-                      {`${post.time}`}{" "}
-                      <Public style={{ fontSize: 17, paddingLeft: 3 }} />
-                    </div>
+            {`${
+              (new Date().getDate() - 1) * 24 +
+                new Date().getHours() -
+                ((new Date(post.time).getDate() - 1) * 24 +
+                  new Date(post.time).getHours()) >
+              24
+                ?`${ (new Date().getDate() - 1) * 24 +
+                  new Date().getHours() -
+                  ((new Date(post.time).getDate() - 1) * 24 +
+                    new Date(post.time).getHours()) /
+                    24} d`
+                : `${ (new Date().getDate() - 1) * 24 +
+                  new Date().getHours() -
+                  ((new Date(post.time).getDate() - 1) * 24 +
+                    new Date(post.time).getHours())}h`
+            }`}{" "}
+            <Public style={{ fontSize: 17, paddingLeft: 3 }} />
+          </div>
                     <div
                       className={
                         templikes > 0 || post.comments?.length > 0
