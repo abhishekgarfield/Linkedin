@@ -10,6 +10,7 @@ import {
   YouTube,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
+import Post from "./Posts";
 
 const Feed = ({ user }) => {
   const [formdata, setformdata] = useState("");
@@ -100,94 +101,7 @@ const Feed = ({ user }) => {
 
       <div className="feed-Read-container">
         {posts?.map((data, index) => {
-          return (
-            <div className="post-card" key={index}>
-              <div className="Post-header">
-                <div className="user-pic">
-                  <img src={data.user_pic} />
-                </div>
-                <div className="user-info">
-                  <div className="user-name">{data.user_name}</div>
-                  <div className="user-information">{data.user_info}</div>
-                  <div className="user-time">
-                    {`${data.time}`}{" "}
-                    <Public style={{ fontSize: 17, paddingLeft: 3 }} />
-                  </div>
-                </div>
-              </div>
-              <div className="post-content">{data.post_content}</div>
-              {(data.likes.length > 0 ||
-                data.comments.length > 0) && (
-                  <div className="post-likes-comments">
-                    <div className="post-likes">
-                      <ThumbUp style={{ fontSize: 15 }} />
-                      {`${data.likes.length > 0 ? data.likes.length : ""}`}
-                    </div>
-                    <div className="post-comments"></div>
-                  </div>
-                )}
-              <div className="post-actions">
-                <div
-                  className={
-                    data.likes.some(({ user_id }) => user_id == user.user_id)
-                      ? "options-container liked"
-                      : "options-container"
-                  }
-                  onClick={(e) => {
-                    e.currentTarget.classList.toggle("liked");
-                    if (e.currentTarget.classList.contains("liked")) {
-                      data.likes.length+=1;
-                      fetch("http://localhost:8000/addlike", {
-                        method: "Put",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                          post_id: data.post_id,
-                          user_id: user.user_id,
-                        }),
-                      })
-                        .then((res) => {
-                          return res.json();
-                        })
-                        .then((data) => {
-                          e.currentTarget.style.color = "rgb(0, 132, 255)";
-                        });
-                    } else {
-                      data.likes.length-=1;
-                      fetch("http://localhost:8000/removelike", {
-                        method: "Delete",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                          post_id: data.post_id,
-                          user_id: user.user_id,
-                        }),
-                      })
-                        .then((res) => {
-                          return res.json();
-                        })
-                        .then((data) => {
-                          e.currentTarget.style.color = "rgba(0, 0, 0, 0.44)";
-                        });
-                    }
-                  }}
-                >
-                  <ThumbUp style={{ paddingRight: 7 }} />
-                  Like
-                </div>
-                <div className="options-container">
-                  <Comment style={{ paddingRight: 7 }} />
-                  Comment
-                </div>
-                <div className="options-container">
-                  <Share style={{ paddingRight: 7 }} />
-                  Share
-                </div>
-                <div className="options-container">
-                  <Send style={{ paddingRight: 7 }} />
-                  Send
-                </div>
-              </div>
-            </div>
-          );
+          return <Post key={index} post={data} user={user}/>
         })}
       </div>
     </div>

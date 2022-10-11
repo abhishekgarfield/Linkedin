@@ -340,6 +340,7 @@ form button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding:10px 0px ;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.377);
 }
 .post-likes{
@@ -351,6 +352,17 @@ form button {
 
 /* ------------- feed read container -------------*/
 
+
+.likes-thumbsup{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 2px 2px;
+  margin-right: 1.5px;
+  font-size: 2px;
+  background-color: rgb(0, 132, 255);
+}
 .feed-Read-container {
   display: flex;
   flex-direction: column;
@@ -419,6 +431,10 @@ form button {
   margin: 10px 0px 3px 0px;
   
   padding-bottom: 15px;
+}
+.post-content.nt{
+
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.377);
 }
 
 .options-container {
@@ -780,4 +796,18 @@ li {
   background-color: #14141479;
   padding: 10px;
   border-radius: 5px;
+}
+
+
+/*--------------- Comments ---------------- */
+.post-card .feed-input-image-container img{
+height: 40px;
+width: 40px;
+}
+.post-card  form input{
+  height: 40px;
+}
+
+.post-card .feed-input-container{
+  margin: 7px 0px;
 }

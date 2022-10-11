@@ -153,6 +153,26 @@ app.delete("/removelike", async (req, res) => {
     console.log(err);
   }
 });
+app.post("/addcomment", async (req, res) => {
+    console.log("addcomment");
+    const comment = req.body;
+    const {post_id}=req.query;
+    console.log(comment);
+    console.log(post_id);
+    const client = new MongoClient(uri);
+    const comment_id = v4();
+    comment.comment_id = comment_id;
+    try {
+      await client.connect();
+      const database = client.db("app-data");
+      const collection = await database.collection("posts");
+      const resp = await collection.updateOne({post_id:post_id},{$push: {comments:comment}});
+      res.send(resp);
+      console.log(resp);
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
 app.listen(port, () => {
   console.log(`server is running on ${port}`);
