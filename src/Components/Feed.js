@@ -11,7 +11,7 @@ const Feed = ({ user }) => {
   const [formdata, setformdata] = useState("");
   const [posts, setPosts] = useState(null);
   const getposts = () => {
-    fetch("http://localhost:8000/getposts", { method: "Get" })
+    fetch("https://linkedingarfield.herokuapp.com/getposts", { method: "Get" })
       .then((res) => {
         return res.json();
       })
@@ -46,7 +46,7 @@ const Feed = ({ user }) => {
                   };
                   setformdata("");
                   console.log(post);
-                  fetch("http://localhost:8000/addpost", {
+                  fetch("https://linkedingarfield.herokuapp.com/addpost", {
                     method: "Post",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(post),

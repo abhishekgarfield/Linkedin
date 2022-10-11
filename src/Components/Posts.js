@@ -82,7 +82,7 @@ const Post = ({ post, user, index, getposts }) => {
             e.currentTarget.classList.toggle("liked");
             if (e.currentTarget.classList.contains("liked")) {
               setTemplikes(templikes + 1);
-              fetch("http://localhost:8000/addlike", {
+              fetch("https://linkedingarfield.herokuapp.com/addlike", {
                 method: "Put",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -98,7 +98,7 @@ const Post = ({ post, user, index, getposts }) => {
                 });
             } else {
               setTemplikes(templikes - 1);
-              fetch("http://localhost:8000/removelike", {
+              fetch("https://linkedingarfield.herokuapp.com/removelike", {
                 method: "Delete",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -157,7 +157,7 @@ const Post = ({ post, user, index, getposts }) => {
                     };
                     setformdata("");
                     fetch(
-                      `http://localhost:8000/addcomment/?post_id=${post.post_id}`,
+                      `https://linkedingarfield.herokuapp.com/addcomment/?post_id=${post.post_id}`,
                       {
                         method: "Post",
                         headers: { "Content-Type": "application/json" },

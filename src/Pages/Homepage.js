@@ -17,7 +17,7 @@ const Homepage = () => {
   const [user, setUser] = useState(null);
   const getuser = () => {
     disptach(setIsloading(true));
-    fetch(`http://localhost:8000/getuser/?user_id=${user_id}`)
+    fetch(`https://linkedingarfield.herokuapp.com/getuser/?user_id=${user_id}`)
       .then((res) => {
         return res.json();
       })

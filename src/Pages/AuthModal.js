@@ -29,7 +29,7 @@ const AuthModal = () => {
       setError(null);
       disptach(setIsloading(true));
 
-      const url = `http://localhost:8000/${isLogin ? "login" : "signup"}`;
+      const url = `https://linkedingarfield.herokuapp.com/${isLogin ? "login" : "signup"}`;
 
       fetch(url, {
         method: "Post",
