@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Linkedin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies used : Reactjs , js , html , css ,Redux , Expressjs , Nodejs , Mongodb , Cookies
 
-## Available Scripts
+1) Authscreen : User needs to autbenticate otherwise he is shown this screen.
+2) Authmodel : signin and sign up modal.
+3) Homescreen : All The posts are listed on this page.
+4) Functionalities : Login , Signup , addpost , addlikes , removelikes , addcomment
+4) Loading screen : While website is loading.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Website : https://linkedingarfield.netlify.app/
+## Website demo video : https://www.youtube.com/watch?v=WnYKBhemHvs
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Authscreen 
 
-### `npm test`
+<img width="1440" alt="Screenshot 2022-10-11 at 7 28 38 PM" src="https://user-images.githubusercontent.com/49722470/195111921-7a8c2710-7671-4273-82d2-868ae1bdc4b4.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Authmodel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+i) Signin : error handling done (Password incorrect,User not found)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="1440" alt="Screenshot 2022-10-11 at 7 28 38 PM" src="https://user-images.githubusercontent.com/49722470/195111528-2dd54a6e-a420-4924-bd9f-39a9590b3eb7.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ii) Signup : all error handling done (Password don;t match,User already exists)
+<img width="1440" alt="Screenshot 2022-10-11 at 7 28 46 PM" src="https://user-images.githubusercontent.com/49722470/195111519-ba0f6ecf-e1e3-4dce-beb5-5dee053422e3.png">
 
-### `npm run eject`
+### Homescreen
+<img width="1440" alt="Screenshot 2022-10-11 at 4 20 26 PM" src="https://user-images.githubusercontent.com/49722470/195111563-0a0fa01f-1a19-4200-86e4-ecb45ad72412.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Functionalities 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+i) Add post
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img width="1440" alt="Screenshot 2022-10-11 at 4 20 26 PM" src="https://user-images.githubusercontent.com/49722470/195111605-f4ce3156-bd22-4d9f-91fa-41c7c236e09d.png">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+ii) Add like
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img width="1440" alt="Screenshot 2022-10-11 at 7 27 06 PM" src="https://user-images.githubusercontent.com/49722470/195111628-38173724-a089-4d98-ac6c-d2f19826ea9d.png">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+iii) Remove like
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img width="1440" alt="Screenshot 2022-10-11 at 7 27 06 PM" src="https://user-images.githubusercontent.com/49722470/195111657-a707fc2f-bac7-41b6-8e3a-45642696ab58.png">
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+iv) Add comment
 
-### Making a Progressive Web App
+<img width="1440" alt="Screenshot 2022-10-11 at 7 27 06 PM" src="https://user-images.githubusercontent.com/49722470/195111770-5cca85e3-0c5a-412d-ac52-c03e1534c444.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Loading screen
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="1440" alt="Screenshot 2022-10-11 at 7 30 05 PM" src="https://user-images.githubusercontent.com/49722470/195111858-906e4143-e1f4-437d-9958-a73356dcf9ed.png">
