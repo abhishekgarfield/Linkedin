@@ -157,8 +157,6 @@ app.post("/addcomment", async (req, res) => {
     console.log("addcomment");
     const comment = req.body;
     const {post_id}=req.query;
-    console.log(comment);
-    console.log(post_id);
     const client = new MongoClient(uri);
     const comment_id = v4();
     comment.comment_id = comment_id;
@@ -167,7 +165,27 @@ app.post("/addcomment", async (req, res) => {
       const database = client.db("app-data");
       const collection = await database.collection("posts");
       const resp = await collection.updateOne({post_id:post_id},{$push: {comments:comment}});
-      res.send(resp);
+      if(resp){
+        const getPost=await collection.findOne({post_id:post_id});
+       console.log(getPost);
+        res.send(getPost);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  });
+  app.get("/getcomments", async (req, res) => {
+    console.log("get comments");
+    const {post_id}=req.query;
+    const client = new MongoClient(uri);
+    try {
+      await client.connect();
+      const database = client.db("app-data");
+      const collection = await database.collection("posts");
+      const resp = await collection.findOne({post_id:post_id}).toArray();
+      if(resp){
+        const getPost=await collection.findOne({post_id:post_id}).toArray();
+      }
       console.log(resp);
     } catch (err) {
       console.log(err);

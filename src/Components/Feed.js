@@ -46,7 +46,6 @@ const Feed = ({ user }) => {
                   time: new Date().toISOString(),
                   likes: [],
                   user_info: "student",
-                  comments: [],
                   post_content: formdata,
                 };
                 setformdata("");
@@ -101,7 +100,7 @@ const Feed = ({ user }) => {
 
       <div className="feed-Read-container">
         {posts?.map((data, index) => {
-          return <Post key={index} post={data} user={user}/>
+          return <Post key={index} posts={data} user={user}/>
         })}
       </div>
     </div>

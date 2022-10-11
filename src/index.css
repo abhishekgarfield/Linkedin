@@ -346,7 +346,9 @@ form button {
 .post-likes{
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 12px;
+  color: #615f5f;
+  font-weight: 700;
 }
 
 
@@ -361,6 +363,7 @@ form button {
   padding: 2px 2px;
   margin-right: 1.5px;
   font-size: 2px;
+  color: #535252;
   background-color: rgb(0, 132, 255);
 }
 .feed-Read-container {
@@ -391,12 +394,12 @@ form button {
   flex-direction: column;
 }
 
-.user-pic {
+.Post-header .user-pic {
   display: flex;
   margin-bottom: 10px;
 }
 
-.user-pic img {
+.Post-header .user-pic img{
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -810,4 +813,65 @@ width: 40px;
 
 .post-card .feed-input-container{
   margin: 7px 0px;
+}
+.post-comments{
+  display: flex;
+  align-self: flex-end;
+  font-size: 12px;
+  color: #535252;
+}
+.comment-container .user-pic {
+  align-self: flex-start;
+}
+.comment-container .user-pic img {
+ height: 40px;
+
+ width: 40px;
+}
+.comment-container .Post-header{
+  margin-top: 5px;
+}
+.comment-container .Post-header{
+  align-items: center;
+  display: flex;
+}
+.comment-container .user-info{
+  background-color: rgba(211, 211, 211, 0.355);
+  flex-grow: 1;
+  margin-left: 5px;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-right-radius: 10px;
+}
+.comment-container .user-name{
+font-size: 14px;
+}
+
+.comment-container .user-information{
+  font-size: 12px;
+}
+.comments input{
+background-color: white;
+}
+.comment-container .user-time{
+  font-size: 12px;
+}
+.comment-container .post-content{
+margin: 10px 0px 0px 0px;
+padding-bottom: 0px;
+
+}
+
+.comment-container{
+  display: flex;
+  flex-direction: column;
+}
+.comment-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #676666;
 }
