@@ -8,6 +8,7 @@ const AuthModal = () => {
   const [isLogin, setislogin] = useState(true);
   const [cookies, setCookie, removeCookie] = useCookies(`[user]`);
   const navigate = useNavigate();
+  const authToken = cookies.authToken;
   const disptach = useDispatch();
   const [user, setUser] = useState({
     email: "",
@@ -58,74 +59,99 @@ const AuthModal = () => {
     <div className="authmodal-main-cont">
       <img src="https://i.imgur.com/pG5EiLc.png" />
       <div className="authmodal-inner-cont">
-        <h1>{isLogin ? "Sign in" : "Sign up"}</h1>
-        {!isLogin && <input
-          type="text"
-          required={true}
-          placeholder="Name"
-          value={user.name}
-          name="name"
-          onChange={(e) => handleChange(e)}
-        />}
-        <input
-          type="text"
-          required={true}
-          placeholder="Email"
-          value={user.email}
-          name="email"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={user.password}
-          name="password"
-          onChange={(e) => handleChange(e)}
-        />
-        {!isLogin && (
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={user.confirmpassword}
-            name="confirmpassword"
-            onChange={(e) => handleChange(e)}
-          />
+        {!authToken && (
+          <>
+            <h1>{isLogin ? "Sign in" : "Sign up"}</h1>
+            {!isLogin && (
+              <input
+                type="text"
+                required={true}
+                placeholder="Name"
+                value={user.name}
+                name="name"
+                onChange={(e) => handleChange(e)}
+              />
+            )}
+            <input
+              type="text"
+              required={true}
+              placeholder="Email"
+              value={user.email}
+              name="email"
+              onChange={(e) => handleChange(e)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={user.password}
+              name="password"
+              onChange={(e) => handleChange(e)}
+            />
+            {!isLogin && (
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                value={user.confirmpassword}
+                name="confirmpassword"
+                onChange={(e) => handleChange(e)}
+              />
+            )}
+            {!isLogin && (
+              <input
+                type="url"
+                placeholder="Profile pic"
+                value={user.url}
+                name="url"
+                onChange={(e) => handleChange(e)}
+              />
+            )}
+            {error && (
+              <div className="error-cont">
+                <span
+                  className="fa fa-exclamation"
+                  style={{ paddingRight: 5 }}
+                ></span>
+                {error}
+              </div>
+            )}
+            <div className="submit-container" onClick={handleSubmit}>
+              {!isloading && (
+                <div className="vutton"> {isLogin ? "Sign in" : "Sign up"}</div>
+              )}
+              {isloading && <div className="loader"></div>}
+            </div>
+            <p>
+              {isLogin ? "New to Linkedin ?" : "Already have an account ?"}{" "}
+              <span
+                onClick={() => {
+                  setislogin(!isLogin);
+                }}
+              >
+                {" "}
+                {isLogin ? "Sign up now." : "Signin"}
+              </span>
+            </p>
+          </>
         )}
-        {!isLogin && (
-          <input
-            type="url"
-            placeholder="Profile pic"
-            value={user.url}
-            name="url"
-            onChange={(e) => handleChange(e)}
-          />
+        {authToken && (
+          <>
+            <h1> Signout</h1>{" "}
+            <div
+              className="submit-container"
+              style={{ marginTop: 5, marginBottom: 20 }}
+              onClick={() => {
+                removeCookie("authToken", cookies.authToken);
+                removeCookie("user_id", cookies.user_id);
+
+                navigate("/");
+                window.location.reload();
+              }}
+            >
+              {!isloading && <div className="vutton"> {"Signout"}</div>}
+              {isloading && <div className="loader"></div>}
+            </div>{" "}
+          </>
         )}
-        {error && (
-          <div className="error-cont">
-            <span
-              className="fa fa-exclamation"
-              style={{ paddingRight: 5 }}
-            ></span>
-            {error}
-          </div>
-        )}
-        <div className="submit-container" onClick={handleSubmit}>
-          {!isloading && (
-            <div className="vutton"> {isLogin ? "Sign in" : "Sign up"}</div>
-          )}
-          {isloading && <div className="loader"></div>}
-        </div>
-        <p>
-        { isLogin ? "New to Linkedin ?" : "Already have an account ?"}{" "}
-          <span
-            onClick={() => {
-              setislogin(!isLogin);
-            }}
-          >
-            {" "}
-            { isLogin ? "Sign up now." : "Signin"}
-          </span>
-        </p>
       </div>
     </div>
   );
