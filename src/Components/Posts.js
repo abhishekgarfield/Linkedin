@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-    ArrowDropDown,
+  ArrowDropDown,
   Comment,
   Event,
   Photo,
@@ -12,8 +12,8 @@ import {
   YouTube,
 } from "@material-ui/icons";
 
-const Post = ({ posts, user, index }) => {
-  const [post, setPost] = useState(posts);
+const Post = ({ post, user, index ,getposts}) => {
+ 
   const [formdata, setformdata] = useState("");
   const [iscommentselected, setiscommentselected] = useState(false);
   const [templikes, setTemplikes] = useState(post ? post.likes.length : 0);
@@ -27,7 +27,23 @@ const Post = ({ posts, user, index }) => {
           <div className="user-name">{post.user_name}</div>
           <div className="user-information">{post.user_info}</div>
           <div className="user-time">
-            {`${post.time}`} <Public style={{ fontSize: 17, paddingLeft: 3 }} />
+            {`${
+              (new Date().getDate() - 1) * 24 +
+                new Date().getHours() -
+                ((new Date(post.time).getDate() - 1) * 24 +
+                  new Date(post.time).getHours()) >
+              24
+                ?`${ (new Date().getDate() - 1) * 24 +
+                  new Date().getHours() -
+                  ((new Date(post.time).getDate() - 1) * 24 +
+                    new Date(post.time).getHours()) /
+                    24} d`
+                : `${ (new Date().getDate() - 1) * 24 +
+                  new Date().getHours() -
+                  ((new Date(post.time).getDate() - 1) * 24 +
+                    new Date(post.time).getHours())}h`
+            }`}{" "}
+            <Public style={{ fontSize: 17, paddingLeft: 3 }} />
           </div>
         </div>
       </div>
@@ -150,7 +166,7 @@ const Post = ({ posts, user, index }) => {
                       return res.json();
                     })
                     .then((data) => {
-                      setPost(data);
+                        getposts();
                     });
                 }}
               >
@@ -172,7 +188,10 @@ const Post = ({ posts, user, index }) => {
       {iscommentselected && (
         <>
           {" "}
-          <div className="comment-header">Comments<ArrowDropDown/></div>
+          <div className="comment-header">
+            Comments
+            <ArrowDropDown />
+          </div>
           {post.comments?.map((post) => {
             return (
               <div className="comment-container">

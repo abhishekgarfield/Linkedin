@@ -17,7 +17,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(243, 242, 239, 0.908);
+  background-color: rgb(225, 224, 219);
 }
 
 /* ----------------- Header ----------------*/
@@ -340,7 +340,7 @@ form button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding:10px 0px ;
+  padding:0px 0px 10px 0px;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.377);
 }
 .post-likes{
@@ -375,7 +375,7 @@ form button {
 .post-card {
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
+  margin-top: 10px;
   background-color: white;
   padding: 5px 10px;
   border-radius: 6px;
@@ -866,6 +866,7 @@ padding-bottom: 0px;
 .comment-container{
   display: flex;
   flex-direction: column;
+  margin-bottom: 5px;
 }
 .comment-header{
   display: flex;
@@ -874,4 +875,7 @@ padding-bottom: 0px;
   font-size: 13px;
   font-weight: 600;
   color: #676666;
+}
+.comment-container .post-content.nt{
+  border-bottom: none;
 }

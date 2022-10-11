@@ -86,7 +86,6 @@ app.post("/login", async (req, res) => {
 app.post("/addpost", async (req, res) => {
   console.log("addpost");
   const post = req.body;
-  console.log(post);
   const client = new MongoClient(uri);
   const post_id = v4();
   post.post_id = post_id;
@@ -95,7 +94,10 @@ app.post("/addpost", async (req, res) => {
     const database = client.db("app-data");
     const collection = await database.collection("posts");
     const resp = await collection.insertOne(post);
-    res.send(resp);
+    if(resp){
+        const hl=await collection.find().toArray();
+        return res.send(hl);
+    }
     console.log(resp);
   } catch (err) {
     console.log(err);
@@ -129,7 +131,6 @@ app.put("/addlike", async (req, res) => {
       { $push: { likes: { user_id } } }
     );
     res.send(resp);
-    console.log(resp);
   } catch (err) {
     console.log(err);
   }

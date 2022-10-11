@@ -54,11 +54,14 @@ const Feed = ({ user }) => {
                   method: "Post",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(post),
-                }).then((res) => {
-                  if (res) {
-                    getposts();
-                  }
-                });
+                })
+                  .then((res) => {
+                    return res.json();
+                  })
+                  .then((data) => {
+                    console.log(data);
+                    setPosts(data.sort((a, b) => b.time.localeCompare(a.time)));
+                  });
               }}
             >
               <input
@@ -100,7 +103,9 @@ const Feed = ({ user }) => {
 
       <div className="feed-Read-container">
         {posts?.map((data, index) => {
-          return <Post key={index} posts={data} user={user}/>
+          return (
+            <Post key={index} post={data} user={user} getposts={getposts} />
+          );
         })}
       </div>
     </div>
