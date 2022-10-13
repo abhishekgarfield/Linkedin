@@ -29,11 +29,11 @@ const Post = ({ post, user, index, getposts }) => {
                   new Date(post.time).getHours()) >
               24
                 ? `${
-                    (new Date().getDate() - 1) * 24 +
+                    (((new Date().getDate() - 1) * 24 +
                     new Date().getHours() -
                     ((new Date(post.time).getDate() - 1) * 24 +
-                      new Date(post.time).getHours()) /
-                      24
+                      new Date(post.time).getHours())) /
+                      24).toFixed(0)
                   } d`
                 : `${
                     (new Date().getDate() - 1) * 24 +
